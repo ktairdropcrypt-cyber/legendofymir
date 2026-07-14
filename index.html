@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>シーズン3 競争のシーズン攻略メモ | Legend of YMIR クラン資料</title>
+<meta name="description" content="Legend of YMIR シーズン3「競争のシーズン」(2026/7/14〜9/8) のクラン向けまとめ。イベント製作レシピ・素材の狩り場・バルザグルズ湧き場所MAP。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100d0b;          /* 鍛冶場の闇 */
+  --panel:#1c1714;       /* 鉄板 */
+  --panel-2:#241d18;
+  --line:#3a2f26;
+  --text:#ede4d6;        /* 灰白 */
+  --muted:#9a8d7c;       /* 灰 */
+  --ember:#ff7a2f;       /* 熾火 */
+  --ember-deep:#c4460f;
+  --gold:#d4a937;        /* 黄金の角笛 */
+  --danger:#e05555;
+  --radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Noto Sans JP",sans-serif;
+  font-size:15px;
+  line-height:1.75;
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+
+/* ---- nav ---- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(16,13,11,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1080px;margin:0 auto;padding:0 20px;
+  display:flex;align-items:center;gap:6px;
+  overflow-x:auto;white-space:nowrap;
+  -webkit-overflow-scrolling:touch;
+}
+.nav-brand{
+  font-family:Cinzel,serif;font-weight:700;font-size:14px;
+  letter-spacing:.14em;color:var(--ember);
+  padding:14px 14px 14px 0;flex-shrink:0;
+}
+nav a.nav-link{
+  color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;
+  padding:14px 12px;flex-shrink:0;border-bottom:2px solid transparent;
+}
+nav a.nav-link:hover,nav a.nav-link:focus-visible{color:var(--text);border-bottom-color:var(--ember)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+
+/* ---- hero ---- */
+header{
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 110%, rgba(196,70,15,.34), transparent 65%),
+    radial-gradient(ellipse 50% 40% at 50% 115%, rgba(255,122,47,.28), transparent 70%),
+    var(--bg);
+}
+.hero{max-width:1080px;margin:0 auto;padding:64px 20px 48px;text-align:center}
+.hero .eyebrow{
+  font-family:Cinzel,serif;letter-spacing:.35em;font-size:12px;
+  color:var(--gold);text-transform:uppercase;
+}
+.hero h1{
+  font-size:clamp(30px,5.5vw,52px);font-weight:900;letter-spacing:.04em;
+  margin:10px 0 6px;
+  background:linear-gradient(180deg,#fff3e4 20%,var(--ember) 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero .period{color:var(--muted);font-size:14px}
+.hero .period strong{color:var(--text)}
+.countdowns{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px;
+}
+.cd{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:12px 20px;min-width:230px;
+}
+.cd .cd-label{font-size:12px;color:var(--muted)}
+.cd .cd-time{
+  font-family:Cinzel,serif;font-weight:700;font-size:22px;letter-spacing:.06em;
+  color:var(--ember);font-variant-numeric:tabular-nums;
+}
+.cd.gold .cd-time{color:var(--gold)}
+
+/* ---- layout ---- */
+main{max-width:1080px;margin:0 auto;padding:12px 20px 80px}
+section{margin-top:56px}
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:20px}
+.sec-head .flame{
+  width:12px;height:12px;flex-shrink:0;align-self:center;border-radius:50% 50% 50% 0;
+  background:radial-gradient(circle at 40% 70%,var(--ember),var(--ember-deep));
+  transform:rotate(-45deg);
+  box-shadow:0 0 10px rgba(255,122,47,.55);
+}
+h2{font-size:22px;font-weight:700;letter-spacing:.03em}
+.sec-head .en{font-family:Cinzel,serif;font-size:12px;letter-spacing:.2em;color:var(--muted)}
+h3{font-size:16px;font-weight:700;color:var(--gold);margin:26px 0 10px}
+p.note{color:var(--muted);font-size:13px}
+.badge{
+  display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;
+  border:1px solid var(--ember);color:var(--ember);
+  border-radius:999px;padding:1px 10px;vertical-align:2px;margin-left:8px;
+}
+.badge.gray{border-color:var(--muted);color:var(--muted)}
+
+/* ---- callout ---- */
+.callout{
+  background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--ember);
+  border-radius:var(--radius);padding:14px 18px;margin:14px 0;
+}
+.callout.warn{border-left-color:var(--danger)}
+.callout.gold{border-left-color:var(--gold)}
+.callout b{color:var(--ember)}
+.callout.warn b{color:var(--danger)}
+.callout.gold b{color:var(--gold)}
+
+/* ---- tables ---- */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{
+  background:var(--panel-2);color:var(--gold);font-weight:700;font-size:12.5px;
+  letter-spacing:.05em;white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+td .lim{color:var(--muted);font-size:12px}
+tr.hl td{background:rgba(255,122,47,.08)}
+details{border:1px solid var(--line);border-radius:var(--radius);margin:10px 0;background:var(--panel)}
+summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--ember);list-style-position:inside}
+details[open] summary{border-bottom:1px solid var(--line)}
+details .tbl-wrap{border:none;margin:0}
+
+/* ---- chips (狩り場) ---- */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{
+  background:var(--panel);border:1px solid var(--line);border-radius:999px;
+  padding:4px 14px;font-size:13px;
+}
+.chip::before{content:"◆ ";color:var(--ember);font-size:10px;vertical-align:1px}
+
+/* ---- map cards (signature) ---- */
+.maps{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:16px}
+.map-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;
+}
+.map-card .map-title{
+  padding:10px 16px;font-weight:700;font-size:14px;
+  border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;gap:8px;
+}
+.map-card .map-title .file{font-size:11px;color:var(--muted);font-weight:400;font-family:monospace}
+.map-card .map-body{aspect-ratio:16/10;position:relative;background:var(--panel-2)}
+.map-card img{width:100%;height:100%;object-fit:cover;display:block}
+.map-card .placeholder{
+  position:absolute;inset:0;display:none;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;text-align:center;padding:16px;
+  border:2px dashed var(--line);border-radius:0 0 var(--radius) var(--radius);
+  color:var(--muted);font-size:13px;
+}
+.map-card .placeholder .ph-flame{font-size:26px;filter:grayscale(.4);opacity:.7}
+.map-card.missing img{display:none}
+.map-card.missing .placeholder{display:flex}
+.map-card .map-memo{padding:8px 16px 12px;font-size:12.5px;color:var(--muted)}
+
+/* ---- event list ---- */
+.ev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.ev{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:12px 16px;
+}
+.ev .ev-type{font-size:11px;color:var(--gold);letter-spacing:.06em}
+.ev .ev-name{font-weight:700}
+.ev .ev-name a{color:var(--text);text-decoration:none;border-bottom:1px dotted var(--muted)}
+.ev .ev-name a:hover{color:var(--ember);border-bottom-color:var(--ember)}
+.ev .ev-period{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+footer{
+  border-top:1px solid var(--line);margin-top:64px;padding:24px 20px 48px;
+  text-align:center;color:var(--muted);font-size:12.5px;
+}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand">YMIR S3</span>
+    <a class="nav-link" href="#overview">シーズン概要</a>
+    <a class="nav-link" href="#craft">イベント製作</a>
+    <a class="nav-link" href="#farm">素材の狩り場</a>
+    <a class="nav-link" href="#named">バルザグルズ湧き場所</a>
+    <a class="nav-link" href="#flame">競争の炎バフ</a>
+    <a class="nav-link" href="#expedition">シーズン遠征</a>
+    <a class="nav-link" href="#events">イベント一覧</a>
+  </div>
+</nav>
+
+<header>
+  <div class="hero">
+    <div class="eyebrow">Legend of YMIR — Season 3</div>
+    <h1>競争のシーズン</h1>
+    <p class="period">シーズン期間：<strong>2026年7月14日メンテ後 〜 9月8日メンテ前</strong></p>
+    <div class="countdowns">
+      <div class="cd">
+        <div class="cd-label">製作イベント終了まで（8/11 07:00 UTC+8）</div>
+        <div class="cd-time" id="cd-event">--</div>
+      </div>
+      <div class="cd gold">
+        <div class="cd-label">シーズン終了まで（9/8 メンテ・目安）</div>
+        <div class="cd-time" id="cd-season">--</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= 概要 ================= -->
+<section id="overview">
+  <div class="sec-head"><span class="flame"></span><h2>シーズン概要</h2><span class="en">OVERVIEW</span></div>
+  <p>シーズンコンテンツで「<b style="color:var(--ember)">競争の炎</b>」を集めるのが今シーズンの軸。炎の所持数に応じて全地域で「競争の祝福」（最大：経験値+100%／アイテムドロップ+15%／スキルダメージ+11%／モンスターダメージ+22%）、紛争地域で「闘争の祝福」（PvP防御系）が発動する。</p>
+  <div class="callout gold"><b>クラン方針メモ：</b>遠征の高難易度解放（炎50／150／300）に直結するので、まずは全員が炎150→300を目指す。詳細は<a href="#flame" style="color:var(--gold)">バフ早見表</a>参照。</div>
+  <h3>今シーズンの主な新要素</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>要素</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td>シーズン遠征</td><td>「怒りのクリスタル・ラウバル」精神支配ギミック。1日1回・4難易度</td></tr>
+      <tr><td>シーズンネームド</td><td>「火炎の巨人バルザグルズ」5地域に出現。討伐でシーズン関連アイテム</td></tr>
+      <tr><td>唯一装備「フロッティ」</td><td>専用スロット装備。競争のコインで製作、最大+15精錬、NFT転換可</td></tr>
+      <tr><td>シーズン装備「黄金の角笛」</td><td>角笛スロット装備。競争の強化石で強化（シーズン中のみ）</td></tr>
+      <tr><td>競争の戦闘ツルハシ</td><td>コレクション登録可能な希少ランクアイテム</td></tr>
+      <tr><td>シーズン召喚物</td><td>ヴァルキリー6種・ディーシル2種（競争/挑戦の召喚券）、バディ4種（製作・イベント）</td></tr>
+      <tr><td>シーズン指令</td><td>Lv40以上。1日5回、指令追加券で最大10回</td></tr>
+      <tr><td>シーズンランキング</td><td>1位バフ：PVPスキルダメージ+20%／防御+20%（〜500位まで段階バフ）</td></tr>
+      <tr><td>シーズンコイン</td><td>「競争のコイン」＝取引可能な希少以上装備＋競争の精錬石で精錬。シーズン後も残る</td></tr>
+      <tr><td>黒いヴァルキリー</td><td>シーズン黒いヴァルキリー5種。ルーンとコレクションはシーズン後も維持</td></tr>
+      <tr><td>新迷宮</td><td>「アルヴィトの迷宮」（Lv55〜65向け／1はLv55〜のインター地域・gWEMIX分配なし）</td></tr>
+      <tr><td>その他</td><td>2クライアントサービス開始（7/16頃）、名誉の証の1日上限が20,000に増加</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn"><b>注意：</b>「黄金の角笛」はシーズン終了時に<b>+10未満はすべて削除</b>。シーズンコレクション176種・特産品コレクションもシーズン終了で削除（一般コレクション57種は維持）。</div>
+</section>
+
+<!-- ================= イベント製作 ================= -->
+<section id="craft">
+  <div class="sec-head"><span class="flame"></span><h2>イベント製作「燃え上がる競争の火種」</h2><span class="en">CRAFT</span></div>
+  <p>期間：<b>7/14メンテ後 〜 8/11 07:00 (UTC+8)</b>　場所：<b>製作 &gt; イベント &gt; 燃え上がる競争の火種</b></p>
+  <p>対象地域のモンスターを倒して「<b style="color:var(--ember)">競争の火種（帰属）</b>」を集め、下記アイテムを製作する。</p>
+
+  <h3>製作レシピ一覧</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>製作アイテム（帰属）</th><th>必要火種</th><th>シルバー</th><th>製作制限</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td>ムスペルヘイムの炎の精髄 <span class="badge">コレクション用</span></td><td class="num">10</td><td class="num">50,000</td><td>キャラ毎 11回</td></tr>
+      <tr class="hl"><td>戦場の炎の核 <span class="badge">コレクション用</span></td><td class="num">10</td><td class="num">50,000</td><td>キャラ毎 11回</td></tr>
+      <tr><td>レギン装備選択箱</td><td class="num">800</td><td class="num">300,000</td><td>キャラ毎 1回</td></tr>
+      <tr><td>希少昇級クリスタル選択箱</td><td class="num">500</td><td class="num">200,000</td><td>キャラ毎 1回</td></tr>
+      <tr><td>希少ルーン箱</td><td class="num">300</td><td class="num">150,000</td><td>キャラ毎 1回</td></tr>
+      <tr><td>輝く強化石選択箱</td><td class="num">150</td><td class="num">50,000</td><td>キャラ毎 <span class="lim">週1回</span></td></tr>
+      <tr><td>高貴なストーリーデッキポイント箱</td><td class="num">50</td><td class="num">30,000</td><td>キャラ毎 <span class="lim">週5回</span></td></tr>
+      <tr><td>マナ回復ポーション</td><td class="num">10</td><td class="num">20,000</td><td>キャラ毎 <span class="lim">週5回</span></td></tr>
+      <tr><td>オプションエンチャントスクロール</td><td class="num">5</td><td class="num">20,000</td><td>キャラ毎 <span class="lim">週5回</span></td></tr>
+      <tr><td>強化石選択箱</td><td class="num">1</td><td class="num">15,000</td><td>キャラ毎 <span class="lim">週50回</span></td></tr>
+      <tr><td>上級体力ポーション</td><td class="num">5</td><td class="num">10,000</td><td>無制限</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">※アイテム名は公式英語版告知からの訳。ゲーム内表記と多少異なる場合あり。</p>
+
+  <div class="callout"><b>コレクション完成に必要な数：</b>精髄×11＋核×11＝製作上限ぴったり。<b>火種 220個＋シルバー 110万</b>で「勝者の記章 I〜V」がコンプできる。まずはこの220個を最優先で確保。</div>
+
+  <h3>イベントコレクション「勝者の記章 I〜V」（登録期限 8/18 07:00）</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>コレクション</th><th>必要数（精髄／核）</th><th>登録効果（合計）</th></tr></thead>
+    <tbody>
+      <tr><td>勝者の記章 I</td><td class="num">1 / 1</td><td>通常攻撃ダメージ 2%、通常攻撃ダメージ防御 2%</td></tr>
+      <tr><td>勝者の記章 II</td><td class="num">2 / 2</td><td>モンスターダメージ防御 2%・マナ回復 2、モンスターダメージ 2%・体力回復 50</td></tr>
+      <tr><td>勝者の記章 III</td><td class="num">2 / 2</td><td>クリティカル 10・シルバー獲得 2.5%、回避 10・アイテムドロップ 2.5%</td></tr>
+      <tr><td>勝者の記章 IV</td><td class="num">3 / 3</td><td>PvP[気絶]命中 1%・[ダウン]抵抗 1%、PvP[気絶]抵抗 1%・[ダウン]命中 1%</td></tr>
+      <tr><td>勝者の記章 V</td><td class="num">3 / 3</td><td>PVPクリ回避 20・PVPクリダメ防御 2%、PVPクリ 20・PVPクリダメ 2%</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ================= 狩り場 ================= -->
+<section id="farm">
+  <div class="sec-head"><span class="flame"></span><h2>火種の狩り場（ドロップ対象地域）</h2><span class="en">FARMING</span></div>
+  <p>以下の地域のモンスターから「競争の火種（帰属）」がドロップする。</p>
+  <div class="chips">
+    <span class="chip">フォールクヴァング</span>
+    <span class="chip">混沌の神殿</span>
+    <span class="chip">ラグナロク地域</span>
+    <span class="chip">カラ迷宮</span>
+    <span class="chip">スヴァーヴァ迷宮</span>
+    <span class="chip">世界樹の峡谷</span>
+    <span class="chip">ニザヴェッリル峡谷</span>
+    <span class="chip">王の墓</span>
+    <span class="chip">ミュルクヘイム</span>
+    <span class="chip">ヒルドの迷宮 1F</span>
+    <span class="chip">リンドブルム洞窟</span>
+  </div>
+  <div class="callout gold"><b>クラン内メモ欄：</b>ドロップ効率のいい狩り場が判明したらここに追記していく（index.htmlのこの部分を編集）。</div>
+</section>
+
+<!-- ================= ネームド湧き場所 ================= -->
+<section id="named">
+  <div class="sec-head"><span class="flame"></span><h2>シーズンネームド「火炎の巨人バルザグルズ」湧き場所</h2><span class="en">NAMED MOB</span></div>
+  <p>シーズン期間中に出現。討伐で競争のシーズン関連アイテムを獲得できる。出現は以下の5地域。</p>
+  <p class="note">MAPスクショは <code>images/maps/</code> に下記ファイル名で置くと自動で表示される（未登録の枠は点線表示）。湧き位置に印をつけたスクショ推奨。</p>
+  <div class="maps">
+    <div class="map-card">
+      <div class="map-title">ラグナロクの谷 <span class="file">ragnarok-valley.png</span></div>
+      <div class="map-body">
+        <img src="images/maps/ragnarok-valley.png" alt="ラグナロクの谷の湧き場所MAP" loading="lazy" onerror="this.closest('.map-card').classList.add('missing')">
+        <div class="placeholder"><span class="ph-flame">🔥</span>スクショ募集中<br><span style="font-family:monospace">images/maps/ragnarok-valley.png</span></div>
+      </div>
+      <div class="map-memo">メモ：湧き時間・座標をここに追記</div>
+    </div>
+    <div class="map-card">
+      <div class="map-title">ラグナロクの分かれ道 <span class="file">ragnarok-crossroads.png</span></div>
+      <div class="map-body">
+        <img src="images/maps/ragnarok-crossroads.png" alt="ラグナロクの分かれ道の湧き場所MAP" loading="lazy" onerror="this.closest('.map-card').classList.add('missing')">
+        <div class="placeholder"><span class="ph-flame">🔥</span>スクショ募集中<br><span style="font-family:monospace">images/maps/ragnarok-crossroads.png</span></div>
+      </div>
+      <div class="map-memo">メモ：</div>
+    </div>
+    <div class="map-card">
+      <div class="map-title">世界樹の峡谷 深層部 <span class="file">worldtree-deep.png</span></div>
+      <div class="map-body">
+        <img src="images/maps/worldtree-deep.png" alt="世界樹の峡谷深層部の湧き場所MAP" loading="lazy" onerror="this.closest('.map-card').classList.add('missing')">
+        <div class="placeholder"><span class="ph-flame">🔥</span>スクショ募集中<br><span style="font-family:monospace">images/maps/worldtree-deep.png</span></div>
+      </div>
+      <div class="map-memo">メモ：</div>
+    </div>
+    <div class="map-card">
+      <div class="map-title">ニザヴェッリル峡谷 <span class="file">nidavellir-canyon.png</span></div>
+      <div class="map-body">
+        <img src="images/maps/nidavellir-canyon.png" alt="ニザヴェッリル峡谷の湧き場所MAP" loading="lazy" onerror="this.closest('.map-card').classList.add('missing')">
+        <div class="placeholder"><span class="ph-flame">🔥</span>スクショ募集中<br><span style="font-family:monospace">images/maps/nidavellir-canyon.png</span></div>
+      </div>
+      <div class="map-memo">メモ：</div>
+    </div>
+    <div class="map-card">
+      <div class="map-title">ヒルドの迷宮 <span class="file">hilder-labyrinth.png</span></div>
+      <div class="map-body">
+        <img src="images/maps/hilder-labyrinth.png" alt="ヒルドの迷宮の湧き場所MAP" loading="lazy" onerror="this.closest('.map-card').classList.add('missing')">
+        <div class="placeholder"><span class="ph-flame">🔥</span>スクショ募集中<br><span style="font-family:monospace">images/maps/hilder-labyrinth.png</span></div>
+      </div>
+      <div class="map-memo">メモ：</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 競争の炎 ================= -->
+<section id="flame">
+  <div class="sec-head"><span class="flame"></span><h2>競争の炎バフ早見表</h2><span class="en">SEASON BUFF</span></div>
+  <p>まずは節目だけ押さえる。<b style="color:var(--ember)">炎50／150／300</b>は遠征難易度の解放条件でもある。</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>炎の数</th><th>競争の祝福（全地域）</th><th>経験値 (〜Lv54)</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>ドロップ +0.5%</td><td class="num">+35%</td><td>—</td></tr>
+      <tr class="hl"><td class="num">50</td><td>ドロップ +3%</td><td class="num">+45%</td><td>遠征 難易度2 解放</td></tr>
+      <tr class="hl"><td class="num">150</td><td>ドロップ +8%／スキルダメージ +1%</td><td class="num">+65%</td><td>遠征 難易度3 解放</td></tr>
+      <tr class="hl"><td class="num">300</td><td>ドロップ +11.5%程度／スキルダメージ +4.5%程度</td><td class="num">+79〜82%</td><td>遠征 難易度4 解放（条件は300）</td></tr>
+      <tr><td class="num">320</td><td>ドロップ +12%／スキル +5%／モンスター +10%</td><td class="num">+82%</td><td>モンスターダメージ発動</td></tr>
+      <tr><td class="num">500</td><td>ドロップ +15%／スキル +11%／モンスター +22%</td><td class="num">+100%</td><td>フルスタック</td></tr>
+    </tbody>
+  </table></div>
+
+  <details>
+    <summary>競争の祝福 全30レベル表（全地域）</summary>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>炎</th><th>Lv</th><th>効果</th><th>EXP 1-54</th><th>EXP 55-64</th><th>EXP 65+</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="num">1</td><td>ドロップ+0.5%</td><td class="num">35%</td><td class="num">30%</td><td class="num">15%</td></tr>
+        <tr><td class="num">10</td><td class="num">2</td><td>ドロップ+1%</td><td class="num">37%</td><td class="num">31.5%</td><td class="num">16%</td></tr>
+        <tr><td class="num">20</td><td class="num">3</td><td>ドロップ+1.5%</td><td class="num">39%</td><td class="num">33%</td><td class="num">17%</td></tr>
+        <tr><td class="num">30</td><td class="num">4</td><td>ドロップ+2%</td><td class="num">41%</td><td class="num">34.5%</td><td class="num">18%</td></tr>
+        <tr><td class="num">40</td><td class="num">5</td><td>ドロップ+2.5%</td><td class="num">43%</td><td class="num">36%</td><td class="num">19%</td></tr>
+        <tr><td class="num">50</td><td class="num">6</td><td>ドロップ+3%</td><td class="num">45%</td><td class="num">37.5%</td><td class="num">20%</td></tr>
+        <tr><td class="num">60</td><td class="num">7</td><td>ドロップ+3.5%</td><td class="num">47%</td><td class="num">39%</td><td class="num">21%</td></tr>
+        <tr><td class="num">70</td><td class="num">8</td><td>ドロップ+4%</td><td class="num">49%</td><td class="num">40.5%</td><td class="num">22%</td></tr>
+        <tr><td class="num">80</td><td class="num">9</td><td>ドロップ+4.5%</td><td class="num">51%</td><td class="num">42%</td><td class="num">23%</td></tr>
+        <tr><td class="num">90</td><td class="num">10</td><td>ドロップ+5%</td><td class="num">53%</td><td class="num">43.5%</td><td class="num">24%</td></tr>
+        <tr><td class="num">100</td><td class="num">11</td><td>ドロップ+5.5%</td><td class="num">55%</td><td class="num">45%</td><td class="num">25%</td></tr>
+        <tr><td class="num">110</td><td class="num">12</td><td>ドロップ+6%</td><td class="num">57%</td><td class="num">46.5%</td><td class="num">26%</td></tr>
+        <tr><td class="num">120</td><td class="num">13</td><td>ドロップ+6.5%</td><td class="num">59%</td><td class="num">48%</td><td class="num">27%</td></tr>
+        <tr><td class="num">130</td><td class="num">14</td><td>ドロップ+7%</td><td class="num">61%</td><td class="num">49.5%</td><td class="num">28%</td></tr>
+        <tr><td class="num">140</td><td class="num">15</td><td>ドロップ+7.5%</td><td class="num">63%</td><td class="num">51%</td><td class="num">29%</td></tr>
+        <tr><td class="num">150</td><td class="num">16</td><td>ドロップ+8%／スキル+1%</td><td class="num">65%</td><td class="num">52.5%</td><td class="num">30%</td></tr>
+        <tr><td class="num">170</td><td class="num">17</td><td>ドロップ+8.5%／スキル+1.5%</td><td class="num">67%</td><td class="num">54%</td><td class="num">31%</td></tr>
+        <tr><td class="num">190</td><td class="num">18</td><td>ドロップ+9%／スキル+2%</td><td class="num">69%</td><td class="num">55.5%</td><td class="num">32%</td></tr>
+        <tr><td class="num">210</td><td class="num">19</td><td>ドロップ+9.5%／スキル+2.5%</td><td class="num">71%</td><td class="num">57%</td><td class="num">33%</td></tr>
+        <tr><td class="num">230</td><td class="num">20</td><td>ドロップ+10%／スキル+3%</td><td class="num">73%</td><td class="num">58.5%</td><td class="num">34%</td></tr>
+        <tr><td class="num">250</td><td class="num">21</td><td>ドロップ+10.5%／スキル+3.5%</td><td class="num">75%</td><td class="num">60%</td><td class="num">35%</td></tr>
+        <tr><td class="num">270</td><td class="num">22</td><td>ドロップ+11%／スキル+4%</td><td class="num">77%</td><td class="num">62%</td><td class="num">36%</td></tr>
+        <tr><td class="num">290</td><td class="num">23</td><td>ドロップ+11.5%／スキル+4.5%</td><td class="num">79%</td><td class="num">64%</td><td class="num">37%</td></tr>
+        <tr><td class="num">320</td><td class="num">24</td><td>ドロップ+12%／スキル+5%／モンスター+10%</td><td class="num">82%</td><td class="num">66%</td><td class="num">38%</td></tr>
+        <tr><td class="num">350</td><td class="num">25</td><td>ドロップ+12.5%／スキル+6%／モンスター+12%</td><td class="num">85%</td><td class="num">68%</td><td class="num">40%</td></tr>
+        <tr><td class="num">380</td><td class="num">26</td><td>ドロップ+13%／スキル+7%／モンスター+14%</td><td class="num">88%</td><td class="num">70%</td><td class="num">42%</td></tr>
+        <tr><td class="num">410</td><td class="num">27</td><td>ドロップ+13.5%／スキル+8%／モンスター+16%</td><td class="num">91%</td><td class="num">72.5%</td><td class="num">44%</td></tr>
+        <tr><td class="num">440</td><td class="num">28</td><td>ドロップ+14%／スキル+9%／モンスター+18%</td><td class="num">94%</td><td class="num">75%</td><td class="num">46%</td></tr>
+        <tr><td class="num">470</td><td class="num">29</td><td>ドロップ+14.5%／スキル+10%／モンスター+20%</td><td class="num">97%</td><td class="num">77.5%</td><td class="num">48%</td></tr>
+        <tr><td class="num">500</td><td class="num">30</td><td>ドロップ+15%／スキル+11%／モンスター+22%</td><td class="num">100%</td><td class="num">80%</td><td class="num">50%</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+
+  <details>
+    <summary>闘争の祝福 全30レベル表（紛争地域・PvP防御）</summary>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>炎</th><th>Lv</th><th>効果</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="num">1</td><td>PVPダメ防御+30%／PVP強打ダメ防御+5%</td></tr>
+        <tr><td class="num">10</td><td class="num">2</td><td>PVPダメ防御+30.5%／強打防御+5.5%</td></tr>
+        <tr><td class="num">20</td><td class="num">3</td><td>PVPダメ防御+31%／強打防御+6%</td></tr>
+        <tr><td class="num">30</td><td class="num">4</td><td>PVPダメ防御+31.5%／強打防御+6.5%</td></tr>
+        <tr><td class="num">40</td><td class="num">5</td><td>PVPダメ防御+32%／強打防御+7%</td></tr>
+        <tr><td class="num">50</td><td class="num">6</td><td>PVPダメ防御+32.5%／強打防御+7.5%</td></tr>
+        <tr><td class="num">60</td><td class="num">7</td><td>PVPダメ防御+33%／強打防御+8%</td></tr>
+        <tr><td class="num">70</td><td class="num">8</td><td>PVPダメ防御+33.5%／強打防御+8.5%</td></tr>
+        <tr><td class="num">80</td><td class="num">9</td><td>PVPダメ防御+34%／強打防御+9%</td></tr>
+        <tr><td class="num">90</td><td class="num">10</td><td>PVPダメ防御+34.5%／強打防御+9.5%</td></tr>
+        <tr><td class="num">100</td><td class="num">11</td><td>PVPダメ防御+35%／強打防御+10%</td></tr>
+        <tr><td class="num">110</td><td class="num">12</td><td>PVPダメ防御+35.5%／強打防御+10.5%</td></tr>
+        <tr><td class="num">120</td><td class="num">13</td><td>PVPダメ防御+36%／強打防御+11%</td></tr>
+        <tr><td class="num">130</td><td class="num">14</td><td>PVPダメ防御+36.5%／強打防御+11.5%</td></tr>
+        <tr><td class="num">140</td><td class="num">15</td><td>PVPダメ防御+37%／強打防御+12%</td></tr>
+        <tr><td class="num">150</td><td class="num">16</td><td>PVPダメ防御+37.5%／スキルダメ防御+12.5%／強打防御+12.5%</td></tr>
+        <tr><td class="num">170</td><td class="num">17</td><td>PVPダメ防御+38%／スキル防御+13%／強打防御+13%</td></tr>
+        <tr><td class="num">190</td><td class="num">18</td><td>PVPダメ防御+38.5%／スキル防御+13.5%／強打防御+13.5%</td></tr>
+        <tr><td class="num">210</td><td class="num">19</td><td>PVPダメ防御+39%／スキル防御+14%／強打防御+14%</td></tr>
+        <tr><td class="num">230</td><td class="num">20</td><td>PVPダメ防御+39.5%／スキル防御+14.5%／強打防御+14.5%</td></tr>
+        <tr><td class="num">250</td><td class="num">21</td><td>PVPダメ防御+40%／スキル防御+15%／強打防御+15%</td></tr>
+        <tr><td class="num">270</td><td class="num">22</td><td>PVPダメ防御+40.5%／スキル防御+15.5%／強打防御+15.5%</td></tr>
+        <tr><td class="num">290</td><td class="num">23</td><td>PVPダメ防御+41%／スキル防御+16%／強打防御+16%</td></tr>
+        <tr><td class="num">320</td><td class="num">24</td><td>PVPダメ防御+42%／スキル防御+16.5%／強打防御+16.5%／クリダメ防御+16.5%／PVP防御力+30</td></tr>
+        <tr><td class="num">350</td><td class="num">25</td><td>PVPダメ防御+43%／各+17%／PVP防御力+50</td></tr>
+        <tr><td class="num">380</td><td class="num">26</td><td>PVPダメ防御+44%／各+17.5%／PVP防御力+70</td></tr>
+        <tr><td class="num">410</td><td class="num">27</td><td>PVPダメ防御+45%／各+18%／PVP防御力+90</td></tr>
+        <tr><td class="num">440</td><td class="num">28</td><td>PVPダメ防御+46%／各+18.5%／PVP防御力+110</td></tr>
+        <tr><td class="num">470</td><td class="num">29</td><td>PVPダメ防御+47%／各+19%／PVP防御力+130</td></tr>
+        <tr><td class="num">500</td><td class="num">30</td><td>PVPダメ防御+48%／各+19.5%／PVP防御力+150</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+</section>
+
+<!-- ================= 遠征 ================= -->
+<section id="expedition">
+  <div class="sec-head"><span class="flame"></span><h2>シーズン遠征「怒りのクリスタル・ラウバル」</h2><span class="en">EXPEDITION</span></div>
+  <p>モンスターの精神を支配して攻撃してくるギミック。より強力なモンスターが召喚される前にラウバルを討伐すれば勝利。<b>既存遠征とは別枠で1日1回</b>入場可能。</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>難易度</th><th>入場条件</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>Lv40以上</td></tr>
+      <tr><td class="num">2</td><td>Lv50以上 ＋ 競争の炎 50</td></tr>
+      <tr><td class="num">3</td><td>1覚醒 Lv60以上 ＋ 競争の炎 150</td></tr>
+      <tr><td class="num">4</td><td>1覚醒 Lv65以上 ＋ 競争の炎 300</td></tr>
+    </tbody>
+  </table></div>
+  <h3>名誉商人のシーズンアイテム</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>アイテム</th><th>購入制限</th></tr></thead>
+    <tbody>
+      <tr><td>強化された黄金の角笛箱</td><td>毎週1回</td></tr>
+      <tr><td>永遠の炎</td><td>毎日1回</td></tr>
+      <tr><td>競争の強化石</td><td>制限なし</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">名誉の証の1日獲得上限は20,000に増加。毎日の消化を忘れずに。</p>
+</section>
+
+<!-- ================= イベント一覧 ================= -->
+<section id="events">
+  <div class="sec-head"><span class="flame"></span><h2>開催中イベント一覧（7/14開始）</h2><span class="en">EVENTS</span></div>
+  <div class="ev-grid">
+    <div class="ev"><div class="ev-type">出席</div><div class="ev-name"><a href="https://www.legendofymir.com/event/ongoing/745764" target="_blank" rel="noopener">激戦の20日出席</a></div><div class="ev-period">7/14 〜 9/8 07:00</div></div>
+    <div class="ev"><div class="ev-type">出席</div><div class="ev-name"><a href="https://www.legendofymir.com/event/ongoing/746302" target="_blank" rel="noopener">ファフニールの秘密の鍵支援出席</a></div><div class="ev-period">7/14 〜 8/11 07:00</div></div>
+    <div class="ev"><div class="ev-type">任務</div><div class="ev-name"><a href="https://www.legendofymir.com/event/ongoing/746333" target="_blank" rel="noopener">シグルーンの伝説支援任務 I</a></div><div class="ev-period">7/14 〜 7/28 07:00</div></div>
+    <div class="ev"><div class="ev-type">任務</div><div class="ev-name"><a href="https://www.legendofymir.com/event/ongoing/746619" target="_blank" rel="noopener">クラン支援任務</a></div><div class="ev-period">7/14 〜 7/28 07:00</div></div>
+    <div class="ev"><div class="ev-type">任務</div><div class="ev-name"><a href="https://www.legendofymir.com/event/ongoing/746621" target="_blank" rel="noopener">ムニンの記章強化ミッション</a></div><div class="ev-period">7/14 〜 7/28 07:00</div></div>
+    <div class="ev"><div class="ev-type">任務</div><div class="ev-name"><a href="https://www.legendofymir.com/event/ongoing/746623" target="_blank" rel="noopener">競争のシーズン特別任務 I</a></div><div class="ev-period">7/14 〜 9/8 07:00</div></div>
+    <div class="ev"><div class="ev-type">任務</div><div class="ev-name"><a href="https://www.legendofymir.com/event/ongoing/746627" target="_blank" rel="noopener">競争のシーズン特別任務 II</a></div><div class="ev-period">7/14 〜 9/8 07:00</div></div>
+    <div class="ev" style="border-color:var(--ember)"><div class="ev-type">狩り／製作</div><div class="ev-name"><a href="https://www.legendofymir.com/event/ongoing/746630" target="_blank" rel="noopener">燃え上がる競争の火種</a></div><div class="ev-period">7/14 〜 8/11 07:00</div></div>
+    <div class="ev"><div class="ev-type">特殊</div><div class="ev-name"><a href="https://www.legendofymir.com/event/ongoing/746634" target="_blank" rel="noopener">ファフニールの秘密の遺物箱</a></div><div class="ev-period">7/14 〜 7/28 07:00</div></div>
+    <div class="ev"><div class="ev-type">特殊</div><div class="ev-name"><a href="https://www.legendofymir.com/event/ongoing/746636" target="_blank" rel="noopener">ファフニールの隠した宝物箱</a></div><div class="ev-period">7/14 〜 7/28 07:00</div></div>
+    <div class="ev"><div class="ev-type">ランキング</div><div class="ev-name"><a href="https://www.legendofymir.com/event/ongoing/746638" target="_blank" rel="noopener">シーズン個人ランキングイベント</a></div><div class="ev-period">7/14 〜 9/8 07:00</div></div>
+    <div class="ev"><div class="ev-type">費用割引</div><div class="ev-name"><a href="https://www.legendofymir.com/event/ongoing/746639" target="_blank" rel="noopener">経験値抽出費用割引</a></div><div class="ev-period">7/14 〜 終了未定</div></div>
+  </div>
+  <p class="note" style="margin-top:12px">時刻はすべて UTC+8。出典：<a href="https://www.legendofymir.com/ja/news/release/746673" target="_blank" rel="noopener" style="color:var(--muted)">7月14日パッチノート</a>／<a href="https://www.legendofymir.com/news/notice/746645" target="_blank" rel="noopener" style="color:var(--muted)">7月14日イベント案内</a></p>
+</section>
+
+</main>
+
+<footer>
+  クラン内資料（非公式）。データはWEMADE公式パッチノート（2026/7/14）に基づく。<br>
+  最新情報は<a href="https://www.legendofymir.com/ja/news/release" target="_blank" rel="noopener">公式パッチノート</a>を確認。
+</footer>
+
+<script>
+(function(){
+  var evEnd = new Date("2026-08-10T23:00:00Z");      // 8/11 07:00 UTC+8
+  var ssEnd = new Date("2026-09-07T16:00:00Z");      // 9/8 メンテ目安 (00:00 UTC+8)
+  function fmt(ms){
+    if(ms <= 0) return "終了";
+    var d = Math.floor(ms/86400000);
+    var h = Math.floor(ms%86400000/3600000);
+    var m = Math.floor(ms%3600000/60000);
+    return d + "日 " + String(h).padStart(2,"0") + ":" + String(m).padStart(2,"0");
+  }
+  function tick(){
+    var now = Date.now();
+    document.getElementById("cd-event").textContent = fmt(evEnd - now);
+    document.getElementById("cd-season").textContent = fmt(ssEnd - now);
+  }
+  tick();
+  setInterval(tick, 30000);
+})();
+</script>
+</body>
+</html>
