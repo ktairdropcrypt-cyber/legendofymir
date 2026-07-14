@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>シーズン3 競争のシーズン攻略メモ | Legend of YMIR クラン資料</title>
 <meta name="description" content="Legend of YMIR シーズン3「競争のシーズン」(2026/7/14〜9/8) のクラン向けまとめ。イベント製作レシピ・素材の狩り場・バルザグルズ湧き場所MAP。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
   --radius:10px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
+html{scroll-behavior:smooth;scroll-padding-top:64px;-webkit-text-size-adjust:100%}
 body{
   background:var(--bg);
   color:var(--text);
@@ -44,10 +44,18 @@ nav{
   border-bottom:1px solid var(--line);
 }
 .nav-inner{
-  max-width:1080px;margin:0 auto;padding:0 20px;
+  max-width:1080px;margin:0 auto;
+  padding:0 max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left));
   display:flex;align-items:center;gap:6px;
   overflow-x:auto;white-space:nowrap;
   -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.nav-inner::-webkit-scrollbar{display:none}
+nav::after{ /* 横スクロールできることを示す右端フェード */
+  content:"";position:absolute;top:0;right:0;bottom:0;width:36px;
+  background:linear-gradient(90deg,transparent,rgba(16,13,11,.95));
+  pointer-events:none;
 }
 .nav-brand{
   font-family:Cinzel,serif;font-weight:700;font-size:14px;
@@ -98,7 +106,10 @@ header{
 .cd.gold .cd-time{color:var(--gold)}
 
 /* ---- layout ---- */
-main{max-width:1080px;margin:0 auto;padding:12px 20px 80px}
+main{
+  max-width:1080px;margin:0 auto;
+  padding:12px max(20px, env(safe-area-inset-right)) 80px max(20px, env(safe-area-inset-left));
+}
 section{margin-top:56px}
 .sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:20px}
 .sec-head .flame{
@@ -193,10 +204,64 @@ details .tbl-wrap{border:none;margin:0}
 .ev .ev-period{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
 
 footer{
-  border-top:1px solid var(--line);margin-top:64px;padding:24px 20px 48px;
+  border-top:1px solid var(--line);margin-top:64px;
+  padding:24px max(20px, env(safe-area-inset-right)) max(48px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
   text-align:center;color:var(--muted);font-size:12.5px;
 }
 footer a{color:var(--muted)}
+
+/* ================= iPhone / スマホ最適化 ================= */
+@media (max-width: 640px){
+  body{font-size:14.5px}
+  nav a.nav-link{padding:15px 11px;font-size:13.5px} /* タップしやすい高さを確保 */
+  .nav-brand{padding-right:10px}
+
+  .hero{padding:40px 16px 34px}
+  .hero h1{letter-spacing:.02em}
+  .hero .period{font-size:13px}
+  .countdowns{flex-direction:column;align-items:stretch;gap:10px;margin-top:20px}
+  .cd{min-width:0;display:flex;justify-content:space-between;align-items:center;padding:12px 16px}
+  .cd .cd-time{font-size:19px}
+
+  main{padding-top:4px}
+  section{margin-top:42px}
+  h2{font-size:18px;line-height:1.45}
+  .sec-head{gap:10px;flex-wrap:wrap}
+  .sec-head .en{display:none} /* 英字ラベルは省略して見出しを優先 */
+  h3{font-size:15px}
+
+  .callout{padding:12px 14px;font-size:13.5px}
+
+  /* 表：横スクロール前提でコンパクトに＋スクロールヒント */
+  .tbl-wrap{position:relative}
+  table{font-size:12.5px;min-width:520px}
+  th,td{padding:8px 10px}
+  .tbl-wrap::after{
+    content:"← 横にスクロール →";
+    display:block;text-align:center;font-size:10.5px;color:var(--muted);
+    padding:4px 0;border-top:1px solid var(--line);background:var(--panel-2);
+  }
+  /* 2列の表はスクロール不要（折り返して全幅表示） */
+  .tbl-wrap.fit table{min-width:0}
+  .tbl-wrap.fit::after{display:none}
+  details .tbl-wrap::after{border-radius:0 0 var(--radius) var(--radius)}
+  summary{padding:13px 16px;font-size:14px}
+
+  .chips{gap:7px}
+  .chip{font-size:12.5px;padding:5px 12px}
+
+  .maps{grid-template-columns:1fr;gap:14px}
+  .map-card .map-title{flex-wrap:wrap;font-size:13.5px}
+  .map-card .map-title .file{font-size:10px}
+
+  .ev-grid{grid-template-columns:1fr;gap:10px}
+  .ev .ev-name a{padding:2px 0;display:inline-block} /* タップ領域を少し拡大 */
+}
+
+/* 縦幅の小さい横持ち時はヒーローを詰める */
+@media (max-height: 480px){
+  .hero{padding:28px 16px 24px}
+}
 </style>
 </head>
 <body>
@@ -240,7 +305,7 @@ footer a{color:var(--muted)}
   <p>シーズンコンテンツで「<b style="color:var(--ember)">競争の炎</b>」を集めるのが今シーズンの軸。炎の所持数に応じて全地域で「競争の祝福」（最大：経験値+100%／アイテムドロップ+15%／スキルダメージ+11%／モンスターダメージ+22%）、紛争地域で「闘争の祝福」（PvP防御系）が発動する。</p>
   <div class="callout gold"><b>クラン方針メモ：</b>遠征の高難易度解放（炎50／150／300）に直結するので、まずは全員が炎150→300を目指す。詳細は<a href="#flame" style="color:var(--gold)">バフ早見表</a>参照。</div>
   <h3>今シーズンの主な新要素</h3>
-  <div class="tbl-wrap"><table>
+  <div class="tbl-wrap fit"><table>
     <thead><tr><th>要素</th><th>内容</th></tr></thead>
     <tbody>
       <tr><td>シーズン遠征</td><td>「怒りのクリスタル・ラウバル」精神支配ギミック。1日1回・4難易度</td></tr>
@@ -468,7 +533,7 @@ footer a{color:var(--muted)}
 <section id="expedition">
   <div class="sec-head"><span class="flame"></span><h2>シーズン遠征「怒りのクリスタル・ラウバル」</h2><span class="en">EXPEDITION</span></div>
   <p>モンスターの精神を支配して攻撃してくるギミック。より強力なモンスターが召喚される前にラウバルを討伐すれば勝利。<b>既存遠征とは別枠で1日1回</b>入場可能。</p>
-  <div class="tbl-wrap"><table>
+  <div class="tbl-wrap fit"><table>
     <thead><tr><th>難易度</th><th>入場条件</th></tr></thead>
     <tbody>
       <tr><td class="num">1</td><td>Lv40以上</td></tr>
@@ -478,7 +543,7 @@ footer a{color:var(--muted)}
     </tbody>
   </table></div>
   <h3>名誉商人のシーズンアイテム</h3>
-  <div class="tbl-wrap"><table>
+  <div class="tbl-wrap fit"><table>
     <thead><tr><th>アイテム</th><th>購入制限</th></tr></thead>
     <tbody>
       <tr><td>強化された黄金の角笛箱</td><td>毎週1回</td></tr>
